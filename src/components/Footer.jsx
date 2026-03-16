@@ -167,7 +167,7 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <p className="text-gray-500 text-sm text-center sm:text-left">
-            © 2024 Aquários Academia. Desenvolvido por Marcos Porto. Todos os direitos reservados.
+            © {new Date().getFullYear()} Aquários Academia. Desenvolvido por Marcos Porto. Todos os direitos reservados.
           </p>
 
           <motion.div
