@@ -1,9 +1,9 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
+import type { TestimonialsProps, Testimonial, Stat } from '../types';
 
-const Testimonials = () => {
-  const testimonials = [
+const Testimonials: React.FC<TestimonialsProps> = () => {
+  const testimonials: Testimonial[] = [
     {
       name: 'Ana Silva',
       role: 'Executiva',
@@ -50,6 +50,12 @@ const Testimonials = () => {
     },
   };
 
+  const stats: Stat[] = [
+    { number: '4.9', label: 'Avaliação Média' },
+    { number: '500+', label: 'Alunos Satisfeitos' },
+    { number: '98%', label: 'Taxa de Retenção' },
+  ];
+
   return (
     <section id="depoimentos" className="py-20 bg-gradient-dark relative overflow-hidden">
       {/* Decorative elements */}
@@ -84,7 +90,7 @@ const Testimonials = () => {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial: Testimonial, index: number) => (
             <motion.div
               key={index}
               className="glass-effect glass-effect-hover p-8 rounded-xl"
@@ -140,11 +146,7 @@ const Testimonials = () => {
           transition={{ delay: 0.4 }}
           viewport={{ once: true, margin: '-100px' }}
         >
-          {[
-            { number: '4.9', label: 'Avaliação Média' },
-            { number: '500+', label: 'Alunos Satisfeitos' },
-            { number: '98%', label: 'Taxa de Retenção' },
-          ].map((stat, index) => (
+          {stats.map((stat: Stat, index: number) => (
             <motion.div
               key={index}
               className="glass-effect p-8 rounded-xl text-center"

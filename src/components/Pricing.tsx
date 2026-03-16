@@ -1,9 +1,9 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import type { PricingProps, PricingPlan } from '../types';
 
-const Pricing = () => {
-  const plans = [
+const Pricing: React.FC<PricingProps> = () => {
+  const plans: PricingPlan[] = [
     {
       name: 'Plano Mensal',
       price: 'R$ 149',
@@ -103,7 +103,7 @@ const Pricing = () => {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          {plans.map((plan, index) => (
+          {plans.map((plan: PricingPlan, index: number) => (
             <motion.div
               key={index}
               className={`relative rounded-2xl overflow-hidden transition-all duration-300 ${
@@ -152,7 +152,7 @@ const Pricing = () => {
 
                 {/* Features */}
                 <div className="flex-1 mb-8 space-y-4">
-                  {plan.features.map((feature, featureIndex) => (
+                  {plan.features.map((feature: string, featureIndex: number) => (
                     <motion.div
                       key={featureIndex}
                       className="flex items-start gap-3"

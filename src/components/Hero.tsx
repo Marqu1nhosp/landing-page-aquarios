@@ -2,7 +2,21 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
-const Hero = () => {
+// Tipos para o componente
+interface HeroProps {
+  title?: string;
+  subtitle?: string;
+}
+
+interface Stat {
+  number: string;
+  label: string;
+}
+
+const Hero: React.FC<HeroProps> = ({
+  title = 'Transforme seu corpo e sua mente',
+  subtitle = 'Treinos personalizados, equipamentos modernos e acompanhamento profissional. Comece sua jornada de transformação com os melhores personal trainers certificados.',
+}) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -22,6 +36,12 @@ const Hero = () => {
       transition: { duration: 0.8, ease: 'easeOut' },
     },
   };
+
+  const stats: Stat[] = [
+    { number: '500+', label: 'Alunos Ativos' },
+    { number: '50+', label: 'Personal Trainers' },
+    { number: '10+', label: 'Modalidades' },
+  ];
 
   return (
     <section id="inicio" className="relative min-h-screen pt-20 overflow-hidden">
@@ -58,8 +78,8 @@ const Hero = () => {
               className="text-5xl sm:text-6xl lg:text-7xl font-display font-bold leading-tight"
               variants={itemVariants}
             >
-              <span className="block text-white">Transforme seu</span>
-              <span className="gradient-text block">corpo e sua mente</span>
+              <span className="block text-white">{title.split(' e ')[0]} e</span>
+              <span className="gradient-text block">sua mente</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -67,7 +87,7 @@ const Hero = () => {
               className="text-lg sm:text-xl text-gray-400 max-w-2xl leading-relaxed"
               variants={itemVariants}
             >
-              Treinos personalizados, equipamentos modernos e acompanhamento profissional. Comece sua jornada de transformação com os melhores personal trainers certificados.
+              {subtitle}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -96,11 +116,7 @@ const Hero = () => {
               className="flex gap-8 pt-8 border-t border-white/10"
               variants={itemVariants}
             >
-              {[
-                { number: '500+', label: 'Alunos Ativos' },
-                { number: '50+', label: 'Personal Trainers' },
-                { number: '10+', label: 'Modalidades' },
-              ].map((stat) => (
+              {stats.map((stat) => (
                 <div key={stat.label}>
                   <p className="text-3xl font-display font-bold bg-gradient-neon bg-clip-text text-transparent">
                     {stat.number}

@@ -1,15 +1,15 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Clock, Facebook, Instagram, Twitter } from 'lucide-react';
+import type { FooterProps, FooterLinksGroup, SocialLink } from '../types';
 
-const Footer = () => {
-  const footerLinks = {
+const Footer: React.FC<FooterProps> = () => {
+  const footerLinks: FooterLinksGroup = {
     Produto: ['Planos', 'Modalidades', 'App Aquários'],
     Empresa: ['Sobre Nós', 'Blog', 'Carreiras'],
     Legal: ['Privacidade', 'Termos', 'Contato'],
   };
 
-  const socialLinks = [
+  const socialLinks: SocialLink[] = [
     { icon: Facebook, label: 'Facebook', link: 'https://facebook.com' },
     { icon: Instagram, label: 'Instagram', link: 'https://instagram.com' },
     { icon: Twitter, label: 'Twitter', link: 'https://twitter.com' },
@@ -65,7 +65,7 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="flex gap-4">
-              {socialLinks.map((social, index) => {
+              {socialLinks.map((social: SocialLink, index: number) => {
                 const Icon = social.icon;
                 return (
                   <motion.a
@@ -83,13 +83,13 @@ const Footer = () => {
           </motion.div>
 
           {/* Links Columns */}
-          {Object.entries(footerLinks).map(([category, links], columnIndex) => (
+          {Object.entries(footerLinks).map(([category, links]: [string, string[]]) => (
             <motion.div key={category} variants={itemVariants}>
               <h4 className="text-white font-display font-bold mb-4">
                 {category}
               </h4>
               <ul className="space-y-3">
-                {links.map((link, index) => (
+                {links.map((link: string, index: number) => (
                   <motion.li
                     key={index}
                     whileHover={{ x: 5 }}

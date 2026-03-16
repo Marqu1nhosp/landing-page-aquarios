@@ -1,8 +1,8 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Zap } from 'lucide-react';
+import type { CTAProps } from '../types';
 
-const CTA = () => {
+const CTA: React.FC<CTAProps> = () => {
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {

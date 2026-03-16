@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Dumbbell,
@@ -8,9 +7,10 @@ import {
   TrendingUp,
   Sparkles,
 } from 'lucide-react';
+import type { BenefitsProps, Benefit } from '../types';
 
-const Benefits = () => {
-  const benefits = [
+const Benefits: React.FC<BenefitsProps> = () => {
+  const benefits: Benefit[] = [
     {
       icon: Dumbbell,
       title: 'Equipamentos Modernos',
@@ -97,7 +97,7 @@ const Benefits = () => {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          {benefits.map((benefit, index) => {
+          {benefits.map((benefit: Benefit, index: number) => {
             const Icon = benefit.icon;
             return (
               <motion.div

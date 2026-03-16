@@ -1,9 +1,9 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ZoomIn } from 'lucide-react';
+import type { GalleryProps, GalleryImage } from '../types';
 
-const Gallery = () => {
-  const images = [
+const Gallery: React.FC<GalleryProps> = () => {
+  const images: GalleryImage[] = [
     {
       title: 'Sala de Musculação',
       category: 'Equipamentos',
@@ -90,7 +90,7 @@ const Gallery = () => {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          {images.map((img, index) => (
+          {images.map((img: GalleryImage, index: number) => (
             <motion.div
               key={index}
               className="group relative h-64 rounded-xl overflow-hidden cursor-pointer"

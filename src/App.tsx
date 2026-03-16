@@ -1,4 +1,3 @@
-import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Benefits from './components/Benefits';
@@ -8,8 +7,9 @@ import Testimonials from './components/Testimonials';
 import Gallery from './components/Gallery';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import type { AppProps } from './types';
 
-function App() {
+const App: React.FC<AppProps> = () => {
   return (
     <div className="bg-dark-950">
       <Navbar />
@@ -23,6 +23,6 @@ function App() {
       <Footer />
     </div>
   );
-}
+};
 
 export default App;

@@ -1,9 +1,9 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import type { ClassesProps, FitnessClass } from '../types';
 
-const Classes = () => {
-  const classes = [
+const Classes: React.FC<ClassesProps> = () => {
+  const classes: FitnessClass[] = [
     {
       name: 'Musculação',
       description: 'Aumento de massa muscular com técnicas avançadas de periodização.',
@@ -84,7 +84,7 @@ const Classes = () => {
           whileInView="visible"
           viewport={{ once: true, margin: '-100px' }}
         >
-          {classes.map((classItem, index) => (
+          {classes.map((classItem: FitnessClass, index: number) => (
             <motion.div
               key={index}
               variants={itemVariants}

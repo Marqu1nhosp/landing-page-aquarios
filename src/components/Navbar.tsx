@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import type { NavbarProps, NavItem } from '../types';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+const Navbar: React.FC<NavbarProps> = () => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       setScrolled(window.scrollY > 50);
     };
 
@@ -15,7 +16,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { label: 'Início', href: '#inicio' },
     { label: 'Planos', href: '#planos' },
     { label: 'Depoimentos', href: '#depoimentos' },
@@ -51,7 +52,7 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => (
+            {navItems.map((item: NavItem) => (
               <motion.a
                 key={item.label}
                 href={item.href}
@@ -95,7 +96,7 @@ const Navbar = () => {
           style={{ overflow: 'hidden' }}
         >
           <div className="px-4 py-4 space-y-3 flex flex-col">
-            {navItems.map((item, index) => (
+            {navItems.map((item: NavItem, index: number) => (
               <motion.a
                 key={item.label}
                 href={item.href}
