@@ -13,7 +13,7 @@ const CTA: React.FC<CTAProps> = () => {
   };
 
   return (
-    <section id="cta" className="py-20 relative overflow-hidden">
+    <section id="contato" className="py-20 relative overflow-hidden">
       {/* Animated gradient background */}
       <div className="absolute inset-0 bg-gradient-to-r from-neon-purple/20 via-dark-950 to-neon-blue/20 z-0"></div>
 
